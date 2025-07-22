@@ -1,3 +1,4 @@
+
 const calculateBmi = (height: number, weight: number) => {
     if (18.5 <= weight/((height/100)**2) && weight/((height/100)**2) <= 24.9) {
         return 'Normal weight'
@@ -20,6 +21,7 @@ const parseArguments = (args: string[]): number[] => {
    }
    return values;
 }
+if (require.main === module) {
 
 try {
     const values = parseArguments(process.argv.slice(2))
@@ -28,7 +30,10 @@ try {
     let errorMessage = 'now working';
     if (error instanceof Error) {
         errorMessage += ' Error: ' + error.message;
+        console.log(error.message)
     }
     console.log(errorMessage);
 }
+}
+export { calculateBmi, parseArguments };
 
