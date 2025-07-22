@@ -40,16 +40,16 @@ const calculateExercises = (target: number, hours: number[]): Result => {
 };   
 
 const modifyArgs = (args: string[]) => {
-    const list = args.map(item => Number(item))
+    const list = args.map(item => Number(item));
     if (list.every(item => !isNaN(item))) {
-        const target = list[0]
-        const hours = list.slice(1)
+        const target = list[0];
+        const hours = list.slice(1);
         return {
             value1: target,
             value2: hours
-        }
-    } else throw new Error('items are not numbers')
-}
+        };
+    } else throw new Error('items are not numbers');
+};
 
 try {
     const { value1, value2 } = modifyArgs(process.argv.slice(2));
